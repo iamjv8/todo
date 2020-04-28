@@ -10,6 +10,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: TextTheme(
+          headline: TextStyle(
+            fontSize: 24,
+            color: Colors.blue,
+          ),
+        ),
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -25,20 +31,21 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      color: Colors.white,
+      child: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
+            Container(
+              child: Text(
+                'Hello, Jayesh',
+                style: Theme.of(context).textTheme.headline,
+              ),
+            )
           ],
         ),
       ),
