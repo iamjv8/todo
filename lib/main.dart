@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './widgets/select_date.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,13 +11,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        
+        primaryColor: Color.fromRGBO(56, 195, 183, 1),
+        secondaryHeaderColor: Color.fromRGBO(69, 74, 83, 1),
+        accentColor: Color.fromRGBO(165, 183, 182, 1),
         textTheme: TextTheme(
-          headline: TextStyle(
-            fontSize: 24,
-            color: Colors.blue,
-          ),
-        ),
+            headline: TextStyle(
+              fontSize: 36,
+              fontWeight: FontWeight.w700,
+              color: Color.fromRGBO(69, 74, 83, 1),
+            ),
+            subtitle: TextStyle(
+              fontSize: 24,
+              color: Color.fromRGBO(165, 183, 182, 1),
+            )),
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -33,20 +42,28 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      color: Colors.white,
-      child: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Container(
-              child: Text(
-                'Hello, Jayesh',
-                style: Theme.of(context).textTheme.headline,
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        color: Colors.white,
+        child: SafeArea(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 20,
               ),
-            )
-          ],
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Hello, Jayesh',
+                  style: Theme.of(context).textTheme.headline,
+                ),
+              ),
+              Expanded(child: SelectDate())
+            ],
+          ),
         ),
       ),
     );
