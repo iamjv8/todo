@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import './widgets/tasks_container.dart';
 import './widgets/select_date.dart';
+import './providers/task.dart';
 
 void main() => runApp(MyApp());
 
@@ -40,6 +42,34 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  final _items = [
+    {
+      'id': DateTime.now().toIso8601String(),
+      'text': 'Morning Gym Session',
+      'Date': DateTime.now(),
+      'status': Status.Open
+    },
+    {
+      'id': DateTime.now().toIso8601String(),
+      'text': 'Meeting with Team',
+      'Date': DateTime.now(),
+      'status': Status.Completed
+    },
+    {
+      'id': DateTime.now().toIso8601String(),
+      'text': 'Call with Client',
+      'Date': DateTime.now(),
+      'status': Status.Open
+    },
+    {
+      'id': DateTime.now().toIso8601String(),
+      'text': 'Buy Daily needs',
+      'Date': DateTime.now(),
+      'status': Status.Open
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: Theme.of(context).textTheme.headline,
                 ),
               ),
-              Expanded(child: SelectDate())
+              SelectDate(),
+              TasksContainer()
             ],
           ),
         ),
